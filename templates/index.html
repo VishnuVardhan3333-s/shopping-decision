@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Decision System</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .result {
+            margin-top: 20px;
+            background: #e9f7ef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Shopping Decision System</h2>
+
+        <form method="POST">
+            <input type="text" name="product" placeholder="Enter product">
+            <input type="text" name="budget" placeholder="Enter budget">
+
+            <select name="priority">
+                <option value="performance">Performance</option>
+                <option value="battery">Battery</option>
+                <option value="price">Price</option>
+            </select>
+
+            <button type="submit">Get Recommendation</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Result:</h3>
+            <p><b>Decision:</b> {{ result.decision }}</p>
+            <p><b>Reason:</b> {{ result.reason }}</p>
+            <p><b>Tradeoffs:</b> {{ result.tradeoffs }}</p>
+            <p><b>Confidence:</b> {{ result.confidence }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
